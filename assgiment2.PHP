@@ -1,6 +1,7 @@
 /* section 8 */
 /*Abdulla Jamal 20195094 */
 /* Albader mohsen 20191367 */
+we work in one computer 
 
 <?php
 
