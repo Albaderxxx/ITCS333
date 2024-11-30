@@ -5,8 +5,13 @@ $url = "https://data.gov.bh/api/explore/v2.1/catalog/datasets/01-statistics-of-s
 
 $response = file_get_contents($url);
 
+echo $response;
+print_r($response);
 
 $data = json_decode($response, true);
+
+echo $response;
+print_r($response);
 
 
 if (!$data || !isset($data["records"])) {
@@ -14,7 +19,7 @@ if (!$data || !isset($data["records"])) {
 }
 
 
-$records = $data["records"];
+$results = $data["results"];
 ?>
 
 <html>
@@ -43,12 +48,12 @@ $records = $data["records"];
                     $fields = $student['record']['fields'];
                     ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($fields["year"]); ?></td>
-                        <td><?php echo htmlspecialchars($fields["semester"]); ?></td>
-                        <td><?php echo htmlspecialchars($fields["the_programs"]); ?></td>
-                        <td><?php echo htmlspecialchars($fields["nationalities"]); ?></td>
-                        <td><?php echo htmlspecialchars($fields["colleges"]); ?></td>
-                        <td><?php echo htmlspecialchars($fields["count"]); ?></td>
+                        <td><?php echo ($fields["year"]); ?></td>
+                        <td><?php echo ($fields["semester"]); ?></td>
+                        <td><?php echo ($fields["the_programs"]); ?></td>
+                        <td><?php echo ($fields["nationalities"]); ?></td>
+                        <td><?php echo ($fields["colleges"]); ?></td>
+                        <td><?php echo ($fields["Num of Students"]); ?></td>
                     </tr>
                     <?php
                 }
