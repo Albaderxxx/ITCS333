@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<head>
+    <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+    <style>
+        
+    </style>
+    <script>
+
+  function load1()
+  {
+
+   var tableBody = document.querySelector("#jsonTable tbody");
+   tableBody.innerHTML = "";
+   var row;
+
+    fetch("https://data.gov.bh/api/explore/v2.1/catalog/datasets/01-statistics-of-students-nationalities_updated/records?where=colleges%20like%20%22IT%22%20AND%20the_programs%20like%20%22bachelor%22&limit=100")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(jsonResponse) {
+
+
+    //document.getElementById("demo").innerHTML +="<table><tr><th>Nationality</th></tr>";
+   jsonResponse.results.forEach(function(e){
+    row = document.createElement("tr");
+    var cell1 = document.createElement("td");
+    cell1.textContent = e['year'];
+    var cell2 = document.createElement("td");
+    cell2.textContent = e['semester'];
+    var cell3 = document.createElement("td");
+    cell3.textContent = e['the_programs'];
+    var cell4 = document.createElement("td");
+    cell4.textContent = e['nationality'];
+    var cell5 = document.createElement("td");
+    cell5.textContent = e['colleges'];
+    var cell6 = document.createElement("td");
+    cell6.textContent = e['number_of_students'];
